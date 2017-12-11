@@ -1,21 +1,81 @@
 // Labb4AdvC.cpp : Defines the entry point for the console application.
 //
 
+#ifdef _DEBUG
+#ifndef DBG_NEW
+#define DBG_NEW new ( _NORMAL_BLOCK , __FILE__ , __LINE__ )
+#define new DBG_NEW
+#endif
+#endif  // _DEBUG
+
 #include "stdafx.h"
 #include <stdlib.h>
 #include <time.h>
 #include <vector>
 #include <iostream>
 #include <algorithm>
+#include <forward_list>
+#include <list>
+#include <iterator>
 
+
+
+
+template<typename InputIt1, typename InputIt2, typename OutputIt>
+OutputIt Merge(InputIt1 first1,
+	InputIt1 end1,
+	InputIt2 first2,
+	InputIt2 end2,
+	OutputIt out)
+{
+	while (first1 != end1) {
+		if (first2 == end2)
+			return std::copy(first1, end1, out);
+
+		if (*first2 < *first1) {
+			*out = *first2;
+			++first2;
+		}
+		else {
+			*out = *first1;
+			++first1;
+		}
+		++out;
+	}
+
+	return std::copy(first2, end2, out);
+}
+
+template <class ForwardIterator>
+void ForwardSort(ForwardIterator begin, ForwardIterator end)
+{
+	
+	size_t n = std::distance(begin, end);
+	if (n < 2)
+		return;
+	ForwardIterator mid = begin;
+
+	std::advance(mid, n / 2);
+	
+	std::vector<typename ForwardIterator::value_type> res;
+	ForwardSort(begin, mid);
+	ForwardSort(mid, end);
+	Merge(begin, mid, mid, end, std::back_inserter(res));
+	std::copy(res.begin(), res.end(), begin);
+}
 
 void PrintVector(std::vector<int> vector);
 void PrintArray(int array[], int size);
 std::vector<int> RemoveEven(std::vector<int> vector);
+std::forward_list<int> flist = { 22, 13, 5, 34, 1, 6, 7 };
+
+
 
 
 int main()
 {
+	_CrtSetDbgFlag(_CRTDBG_ALLOC_MEM_DF | _CRTDBG_LEAK_CHECK_DF);
+
 	const int max = 10;
 	std::vector<int> testVector;
 	int testArray[max];
@@ -59,7 +119,9 @@ int main()
 
 	testVector = RemoveEven(testVector);
 	PrintVector(testVector);
+	//Printa ut listan före och efter
 
+	ForwardSort(flist.begin(), flist.end());
 	return 0;
 }
 //Gör om så att den använder templates
@@ -93,8 +155,5 @@ std::vector<int> RemoveEven(std::vector<int> vector)
 }
 
 
-template <class ForwardIterator>
-void ForwardSort(ForwardIterator begin, ForwardIterator end)
-{
 
-}
+//template<typname ForwardIterator, class StrictWeakOrdering>

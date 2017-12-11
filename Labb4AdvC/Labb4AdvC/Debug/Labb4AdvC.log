@@ -1,4 +1,10 @@
 ﻿  Labb4AdvC.cpp
-c:\users\emil\documents\visual studio 2015\projects\labb4advc\labb4advc\labb4advc.cpp(76): warning C4018: '<': signed/unsigned mismatch
-  Labb4AdvC.vcxproj -> c:\users\emil\documents\visual studio 2015\Projects\Labb4AdvC\Debug\Labb4AdvC.exe
-  Labb4AdvC.vcxproj -> c:\users\emil\documents\visual studio 2015\Projects\Labb4AdvC\Debug\Labb4AdvC.pdb (Full PDB)
+c:\users\emil\documents\github\assigment4c\labb4advc\labb4advc\labb4advc.cpp(6): warning C4603: 'DBG_NEW': macro is not defined or definition is different after precompiled header use
+  c:\users\emil\documents\github\assigment4c\labb4advc\labb4advc\labb4advc.cpp(6): note: Add macro to precompiled header instead of defining here
+  c:\users\emil\documents\github\assigment4c\labb4advc\labb4advc\labb4advc.cpp(11): note: use of precompiled header
+c:\users\emil\documents\github\assigment4c\labb4advc\labb4advc\labb4advc.cpp(7): warning C4603: 'new': macro is not defined or definition is different after precompiled header use
+  c:\users\emil\documents\github\assigment4c\labb4advc\labb4advc\labb4advc.cpp(7): note: Add macro to precompiled header instead of defining here
+  c:\users\emil\documents\github\assigment4c\labb4advc\labb4advc\labb4advc.cpp(11): note: use of precompiled header
+c:\users\emil\documents\github\assigment4c\labb4advc\labb4advc\labb4advc.cpp(138): warning C4018: '<': signed/unsigned mismatch
+  Labb4AdvC.vcxproj -> C:\Users\Emil\Documents\GitHub\Assigment4C\Labb4AdvC\Debug\Labb4AdvC.exe
+  Labb4AdvC.vcxproj -> C:\Users\Emil\Documents\GitHub\Assigment4C\Labb4AdvC\Debug\Labb4AdvC.pdb (Full PDB)
